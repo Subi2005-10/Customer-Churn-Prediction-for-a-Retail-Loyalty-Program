@@ -1,5 +1,3 @@
-# Customer-Churn-Prediction-for-a-Retail-Loyalty-Program
-FreshBasket runs a loyalty membership program with three tiers: Silver, Gold and Platinum. Membership churn has been rising, and management currently has no systematic way to identify at-risk members before they stop shopping. Retention offers are sent to all members equally, which is expensive too.
 # FreshBasket Loyalty — Customer Churn Prediction (Assessment 4)
 
 Predicts which FreshBasket loyalty members will churn (no purchase in Apr–Jun 2024), explains why, and
@@ -33,10 +31,6 @@ python run_pipeline.py                     # everything: cleaning -> features ->
 python notebooks/build_eda_notebook.py     # rebuilds and executes the EDA notebook
 ```
 
-Optional, to regenerate the Word report and PowerPoint deck from the outputs (needs Node.js with the
-`docx` and `pptxgenjs` packages): `node reports/build_report.js reports/report_data.json` and
-`node reports/build_deck.js reports/report_data.json`. PDF copies of both are included in `reports/`.
-
 The raw file must be at `data/raw/FreshBasket_Loyalty_Churn_Dataset.xlsx` (included).
 Random seed is fixed in `src/config.py`, so reruns give identical results.
 
@@ -62,7 +56,7 @@ src/
   plots.py          shared chart style
 run_pipeline.py     orchestrates everything
 outputs/            all result tables (CSV), figures/, summary.json
-reports/            final report (Word) and presentation (PowerPoint)
+reports/            final report (Word + PDF) and presentation (PDF)
 ```
 
 ## Deliverables map
@@ -76,8 +70,8 @@ reports/            final report (Word) and presentation (PowerPoint)
 | Churn prediction file | `outputs/churn_predictions.csv` (ID, probability, predicted label, risk band, top-3 drivers) |
 | Driver attribution & feature impact | `outputs/shap_feature_importance.csv`, `outputs/segment_risk.csv`, `outputs/ablation_results.csv` |
 | Retention scenario analysis | `outputs/scenario_results.csv`, `outputs/scenario_targeting_curve.csv` |
-| Final report | `reports/FreshBasket_Churn_Report.docx` |
-| Presentation | `reports/FreshBasket_Churn_Presentation.pptx` |
+| Final report | `reports/FreshBasket_Churn_Report.docx` (PDF copy: `reports/FreshBasket_Churn_Report.pdf`) |
+| Presentation | `reports/FreshBasket_Churn_Presentation.pdf` |
 
 ## Method in brief
 
@@ -125,4 +119,3 @@ and changed PR-AUC by less than 0.005 while making probabilities less calibrated
 * The model learns associations. Scenario effects are what-if estimates, not proven causal effects; an A/B
   test (holdout control group) is needed before scaling any campaign.
 * 3-month horizon only; members who pause and return later would be counted as churners.
-
