@@ -1,0 +1,555 @@
+{
+  "raw_rows": {
+    "profile": 2608,
+    "activity": 28073,
+    "label": 2605
+  },
+  "clean_rows": {
+    "profile": 2600,
+    "activity": 28013,
+    "label": 2600
+  },
+  "validation_design": [
+    {
+      "SNAPSHOT": "2023-06",
+      "members": 1787,
+      "churn_rate": 0.18186905428091774,
+      "active_members": 1624,
+      "active_churn_rate": 0.10283251231527094,
+      "role": "Train"
+    },
+    {
+      "SNAPSHOT": "2023-09",
+      "members": 1980,
+      "churn_rate": 0.24545454545454545,
+      "active_members": 1655,
+      "active_churn_rate": 0.10030211480362537,
+      "role": "Train"
+    },
+    {
+      "SNAPSHOT": "2023-12",
+      "members": 2167,
+      "churn_rate": 0.30133825565297645,
+      "active_members": 1681,
+      "active_churn_rate": 0.1023200475907198,
+      "role": "Validation"
+    },
+    {
+      "SNAPSHOT": "2024-03",
+      "members": 2368,
+      "churn_rate": 0.3433277027027027,
+      "active_members": 1715,
+      "active_churn_rate": 0.0956268221574344,
+      "role": "Test (official label)"
+    }
+  ],
+  "churner_share_lapsed_before_2024": 0.7982779827798279,
+  "segment_churn": {
+    "MEMBERSHIP_TIER": [
+      {
+        "MEMBERSHIP_TIER": "Silver",
+        "churn_rate": 0.3515,
+        "members": 1340
+      },
+      {
+        "MEMBERSHIP_TIER": "Gold",
+        "churn_rate": 0.3302,
+        "members": 751
+      },
+      {
+        "MEMBERSHIP_TIER": "Platinum",
+        "churn_rate": 0.3394,
+        "members": 277
+      }
+    ],
+    "SIGNUP_YEAR": [
+      {
+        "SIGNUP_YEAR": 2021,
+        "churn_rate": 0.3866,
+        "members": 714
+      },
+      {
+        "SIGNUP_YEAR": 2022,
+        "churn_rate": 0.4045,
+        "members": 754
+      },
+      {
+        "SIGNUP_YEAR": 2023,
+        "churn_rate": 0.2938,
+        "members": 776
+      },
+      {
+        "SIGNUP_YEAR": 2024,
+        "churn_rate": 0.0323,
+        "members": 124
+      }
+    ],
+    "CITY": [
+      {
+        "CITY": "Austin",
+        "churn_rate": 0.4083,
+        "members": 240
+      },
+      {
+        "CITY": "Columbus",
+        "churn_rate": 0.3992,
+        "members": 243
+      },
+      {
+        "CITY": "Nashville",
+        "churn_rate": 0.3575,
+        "members": 221
+      },
+      {
+        "CITY": "Boise",
+        "churn_rate": 0.3496,
+        "members": 226
+      },
+      {
+        "CITY": "Tulsa",
+        "churn_rate": 0.3271,
+        "members": 269
+      },
+      {
+        "CITY": "Madison",
+        "churn_rate": 0.3262,
+        "members": 233
+      },
+      {
+        "CITY": "Raleigh",
+        "churn_rate": 0.3231,
+        "members": 260
+      },
+      {
+        "CITY": "Denver",
+        "churn_rate": 0.3176,
+        "members": 233
+      },
+      {
+        "CITY": "Spokane",
+        "churn_rate": 0.3158,
+        "members": 228
+      },
+      {
+        "CITY": "Portland",
+        "churn_rate": 0.307,
+        "members": 215
+      }
+    ]
+  },
+  "model_comparison": [
+    {
+      "model": "Rule baseline (recency)",
+      "threshold": 0.1667,
+      "valid_accuracy": 0.9345,
+      "valid_precision": 0.9637,
+      "valid_recall": 0.8132,
+      "valid_f1": 0.8821,
+      "valid_pr_auc": 0.9117,
+      "valid_roc_auc": 0.9418,
+      "valid_brier": 0.1179,
+      "test_n": 2368,
+      "test_churn_rate": 0.3433,
+      "test_accuracy": 0.9451,
+      "test_precision": 0.9776,
+      "test_recall": 0.8598,
+      "test_f1": 0.9149,
+      "test_pr_auc": 0.9452,
+      "test_roc_auc": 0.9616,
+      "test_brier": 0.1061,
+      "active_n": 1715,
+      "active_churn_rate": 0.0956,
+      "active_accuracy": 0.9265,
+      "active_precision": 0.8065,
+      "active_recall": 0.3049,
+      "active_f1": 0.4425,
+      "active_pr_auc": 0.4644,
+      "active_roc_auc": 0.8135,
+      "active_brier": 0.0815,
+      "active_top10pct_lift": 5.5039
+    },
+    {
+      "model": "Logistic regression (balanced)",
+      "threshold": 0.7449,
+      "valid_accuracy": 0.9571,
+      "valid_precision": 0.9473,
+      "valid_recall": 0.9081,
+      "valid_f1": 0.9273,
+      "valid_pr_auc": 0.9769,
+      "valid_roc_auc": 0.9859,
+      "valid_brier": 0.0425,
+      "test_n": 2368,
+      "test_churn_rate": 0.3433,
+      "test_accuracy": 0.9654,
+      "test_precision": 0.9586,
+      "test_recall": 0.9397,
+      "test_f1": 0.9491,
+      "test_pr_auc": 0.9891,
+      "test_roc_auc": 0.9925,
+      "test_brier": 0.033,
+      "active_n": 1715,
+      "active_churn_rate": 0.0956,
+      "active_accuracy": 0.9545,
+      "active_precision": 0.7986,
+      "active_recall": 0.7012,
+      "active_f1": 0.7468,
+      "active_pr_auc": 0.8242,
+      "active_roc_auc": 0.9648,
+      "active_brier": 0.0435,
+      "active_top10pct_lift": 7.5831
+    },
+    {
+      "model": "Random forest (balanced)",
+      "threshold": 0.6331,
+      "valid_accuracy": 0.9525,
+      "valid_precision": 0.9693,
+      "valid_recall": 0.8698,
+      "valid_f1": 0.9169,
+      "valid_pr_auc": 0.9732,
+      "valid_roc_auc": 0.9826,
+      "valid_brier": 0.0386,
+      "test_n": 2368,
+      "test_churn_rate": 0.3433,
+      "test_accuracy": 0.9658,
+      "test_precision": 0.9828,
+      "test_recall": 0.9164,
+      "test_f1": 0.9484,
+      "test_pr_auc": 0.9871,
+      "test_roc_auc": 0.9906,
+      "test_brier": 0.03,
+      "active_n": 1715,
+      "active_churn_rate": 0.0956,
+      "active_accuracy": 0.9545,
+      "active_precision": 0.8981,
+      "active_recall": 0.5915,
+      "active_f1": 0.7132,
+      "active_pr_auc": 0.7966,
+      "active_roc_auc": 0.9549,
+      "active_brier": 0.0399,
+      "active_top10pct_lift": 7.2773
+    },
+    {
+      "model": "LightGBM (balanced weights)",
+      "threshold": 0.5272,
+      "valid_accuracy": 0.9562,
+      "valid_precision": 0.9429,
+      "valid_recall": 0.9096,
+      "valid_f1": 0.926,
+      "valid_pr_auc": 0.9755,
+      "valid_roc_auc": 0.9845,
+      "valid_brier": 0.0366,
+      "test_n": 2368,
+      "test_churn_rate": 0.3433,
+      "test_accuracy": 0.9641,
+      "test_precision": 0.9483,
+      "test_recall": 0.9471,
+      "test_f1": 0.9477,
+      "test_pr_auc": 0.9878,
+      "test_roc_auc": 0.9912,
+      "test_brier": 0.0282,
+      "active_n": 1715,
+      "active_churn_rate": 0.0956,
+      "active_accuracy": 0.9522,
+      "active_precision": 0.7531,
+      "active_recall": 0.7439,
+      "active_f1": 0.7485,
+      "active_pr_auc": 0.8155,
+      "active_roc_auc": 0.9581,
+      "active_brier": 0.0375,
+      "active_top10pct_lift": 7.5831
+    },
+    {
+      "model": "LightGBM",
+      "threshold": 0.3293,
+      "valid_accuracy": 0.9562,
+      "valid_precision": 0.9415,
+      "valid_recall": 0.9112,
+      "valid_f1": 0.9261,
+      "valid_pr_auc": 0.9755,
+      "valid_roc_auc": 0.9846,
+      "valid_brier": 0.0356,
+      "test_n": 2368,
+      "test_churn_rate": 0.3433,
+      "test_accuracy": 0.9633,
+      "test_precision": 0.947,
+      "test_recall": 0.9459,
+      "test_f1": 0.9465,
+      "test_pr_auc": 0.9879,
+      "test_roc_auc": 0.9914,
+      "test_brier": 0.0268,
+      "active_n": 1715,
+      "active_churn_rate": 0.0956,
+      "active_accuracy": 0.9522,
+      "active_precision": 0.7531,
+      "active_recall": 0.7439,
+      "active_f1": 0.7485,
+      "active_pr_auc": 0.8122,
+      "active_roc_auc": 0.9591,
+      "active_brier": 0.0354,
+      "active_top10pct_lift": 7.5219
+    }
+  ],
+  "backtest": [
+    {
+      "train_cutoffs": "2023-06",
+      "test_cutoff": "2023-09",
+      "model": "Logistic regression (balanced)",
+      "pr_auc_all": 0.9669,
+      "roc_auc_all": 0.985,
+      "pr_auc_active": 0.7947,
+      "roc_auc_active": 0.9592
+    },
+    {
+      "train_cutoffs": "2023-06",
+      "test_cutoff": "2023-09",
+      "model": "LightGBM",
+      "pr_auc_all": 0.9676,
+      "roc_auc_all": 0.984,
+      "pr_auc_active": 0.8059,
+      "roc_auc_active": 0.9547
+    },
+    {
+      "train_cutoffs": "2023-06 + 2023-09",
+      "test_cutoff": "2023-12",
+      "model": "Logistic regression (balanced)",
+      "pr_auc_all": 0.9769,
+      "roc_auc_all": 0.9859,
+      "pr_auc_active": 0.7853,
+      "roc_auc_active": 0.949
+    },
+    {
+      "train_cutoffs": "2023-06 + 2023-09",
+      "test_cutoff": "2023-12",
+      "model": "LightGBM",
+      "pr_auc_all": 0.9755,
+      "roc_auc_all": 0.9846,
+      "pr_auc_active": 0.7842,
+      "roc_auc_active": 0.9433
+    },
+    {
+      "train_cutoffs": "2023-06 + 2023-09 + 2023-12",
+      "test_cutoff": "2024-03",
+      "model": "Logistic regression (balanced)",
+      "pr_auc_all": 0.9891,
+      "roc_auc_all": 0.9925,
+      "pr_auc_active": 0.8242,
+      "roc_auc_active": 0.9648
+    },
+    {
+      "train_cutoffs": "2023-06 + 2023-09 + 2023-12",
+      "test_cutoff": "2024-03",
+      "model": "LightGBM",
+      "pr_auc_all": 0.9879,
+      "roc_auc_all": 0.9914,
+      "pr_auc_active": 0.8122,
+      "roc_auc_active": 0.9591
+    }
+  ],
+  "final_model": "LightGBM",
+  "final_threshold": 0.3293031664393643,
+  "risk_band_counts": {
+    "Low": 1515,
+    "High": 782,
+    "Medium": 71
+  },
+  "shap_top_all": {
+    "APP_L3": 1.1881,
+    "TXN_L1": 0.8781,
+    "SPEND_L3": 0.608,
+    "TXN_L3": 0.5804,
+    "RECENCY_MONTHS": 0.5744,
+    "EMAIL_L3": 0.5549,
+    "ZERO_TXN_MONTHS_L3": 0.2782,
+    "COUPON_L3": 0.2362,
+    "TICKETS_L3": 0.2135,
+    "SPEND_CV": 0.1731
+  },
+  "shap_top_active": {
+    "TXN_L1": 0.8212,
+    "APP_L3": 0.8165,
+    "EMAIL_L3": 0.4965,
+    "TXN_L3": 0.4681,
+    "SPEND_L3": 0.4133,
+    "RECENCY_MONTHS": 0.3365,
+    "TICKETS_L3": 0.2488,
+    "COUPON_L3": 0.2089,
+    "SPEND_CV": 0.1701,
+    "CITY": 0.152
+  },
+  "ablation": [
+    {
+      "variant": "Demographics only",
+      "n_features": 10,
+      "pr_auc_all": 0.7319,
+      "roc_auc_all": 0.8076,
+      "f1_all": 0.643,
+      "pr_auc_active": 0.0994,
+      "roc_auc_active": 0.5273
+    },
+    {
+      "variant": "Demographics + engagement",
+      "n_features": 18,
+      "pr_auc_all": 0.9777,
+      "roc_auc_all": 0.9822,
+      "f1_all": 0.9335,
+      "pr_auc_active": 0.6862,
+      "roc_auc_active": 0.9138
+    },
+    {
+      "variant": "Demographics + support",
+      "n_features": 15,
+      "pr_auc_all": 0.727,
+      "roc_auc_all": 0.8206,
+      "f1_all": 0.6631,
+      "pr_auc_active": 0.1585,
+      "roc_auc_active": 0.5764
+    },
+    {
+      "variant": "Demographics + engagement + support",
+      "n_features": 23,
+      "pr_auc_all": 0.9807,
+      "roc_auc_all": 0.9845,
+      "f1_all": 0.9355,
+      "pr_auc_active": 0.7214,
+      "roc_auc_active": 0.9253
+    },
+    {
+      "variant": "Demographics + behavioural",
+      "n_features": 27,
+      "pr_auc_all": 0.98,
+      "roc_auc_all": 0.9867,
+      "f1_all": 0.9258,
+      "pr_auc_active": 0.6753,
+      "roc_auc_active": 0.9372
+    },
+    {
+      "variant": "All features",
+      "n_features": 40,
+      "pr_auc_all": 0.9879,
+      "roc_auc_all": 0.9914,
+      "f1_all": 0.9465,
+      "pr_auc_active": 0.8122,
+      "roc_auc_active": 0.9591
+    },
+    {
+      "variant": "All minus engagement",
+      "n_features": 32,
+      "pr_auc_all": 0.9835,
+      "roc_auc_all": 0.9892,
+      "f1_all": 0.9283,
+      "pr_auc_active": 0.7378,
+      "roc_auc_active": 0.9501
+    },
+    {
+      "variant": "All minus support",
+      "n_features": 35,
+      "pr_auc_all": 0.9863,
+      "roc_auc_all": 0.9904,
+      "f1_all": 0.9438,
+      "pr_auc_active": 0.7841,
+      "roc_auc_active": 0.9538
+    }
+  ],
+  "targeting_curve": [
+    {
+      "share_contacted": 0.05,
+      "members_contacted": 86,
+      "churners_reached": 79,
+      "share_of_churners_reached": 0.4817,
+      "precision": 0.9186,
+      "random_targeting_reach": 0.05
+    },
+    {
+      "share_contacted": 0.1,
+      "members_contacted": 172,
+      "churners_reached": 124,
+      "share_of_churners_reached": 0.7561,
+      "precision": 0.7209,
+      "random_targeting_reach": 0.1
+    },
+    {
+      "share_contacted": 0.2,
+      "members_contacted": 343,
+      "churners_reached": 149,
+      "share_of_churners_reached": 0.9085,
+      "precision": 0.4344,
+      "random_targeting_reach": 0.2
+    },
+    {
+      "share_contacted": 0.3,
+      "members_contacted": 514,
+      "churners_reached": 153,
+      "share_of_churners_reached": 0.9329,
+      "precision": 0.2977,
+      "random_targeting_reach": 0.3
+    },
+    {
+      "share_contacted": 0.5,
+      "members_contacted": 858,
+      "churners_reached": 163,
+      "share_of_churners_reached": 0.9939,
+      "precision": 0.19,
+      "random_targeting_reach": 0.5
+    },
+    {
+      "share_contacted": 1.0,
+      "members_contacted": 1715,
+      "churners_reached": 164,
+      "share_of_churners_reached": 1.0,
+      "precision": 0.0956,
+      "random_targeting_reach": 1.0
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "A. Service outreach: active members with 1+ ticket in Jan-Mar and risk >= threshold",
+      "members_targeted": 109,
+      "actual_churners_in_target": 85,
+      "expected_churners_before": 86.16,
+      "expected_churners_after_model": 63.61,
+      "model_implied_churners_avoided": 22.55,
+      "relative_risk_reduction": 0.26,
+      "churners_avoided_at_assumed_effectiveness": 11.28,
+      "campaign_cost_usd": 872.0,
+      "value_protected_usd": 4676.23,
+      "net_value_usd": 3804.23,
+      "cost_per_member_saved_usd": 77.33
+    },
+    {
+      "scenario": "B. Targeted coupon: top 20% risk among active members",
+      "members_targeted": 343,
+      "actual_churners_in_target": 149,
+      "expected_churners_before": 151.19,
+      "expected_churners_after_model": 112.01,
+      "model_implied_churners_avoided": 39.18,
+      "relative_risk_reduction": 0.26,
+      "churners_avoided_at_assumed_effectiveness": 19.59,
+      "campaign_cost_usd": 1715.0,
+      "value_protected_usd": 8125.18,
+      "net_value_usd": 6410.18,
+      "cost_per_member_saved_usd": 87.54
+    },
+    {
+      "scenario": "C. Blanket coupon: all active members (current practice)",
+      "members_targeted": 1715,
+      "actual_churners_in_target": 164,
+      "expected_churners_before": 159.73,
+      "expected_churners_after_model": 118.76,
+      "model_implied_churners_avoided": 40.97,
+      "relative_risk_reduction": 0.26,
+      "churners_avoided_at_assumed_effectiveness": 20.49,
+      "campaign_cost_usd": 8575.0,
+      "value_protected_usd": 8495.52,
+      "net_value_usd": -79.48,
+      "cost_per_member_saved_usd": 418.6
+    }
+  ],
+  "scenario_assumptions": {
+    "gross_margin": 0.25,
+    "value_horizon_months": 12,
+    "coupon_cost": 5.0,
+    "outreach_cost": 8.0,
+    "effectiveness": 0.5,
+    "annual_margin_per_member_usd": 414.72
+  }
+}

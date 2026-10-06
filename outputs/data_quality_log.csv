@@ -1,0 +1,24 @@
+table,check,rows_affected,action
+profile,Exact duplicate rows,8,Dropped
+profile,Duplicate CUSTOMER_ID with conflicting values,0,Kept first record
+profile,CITY: inconsistent casing/whitespace,104,"Stripped whitespace, title-cased"
+profile,MEMBERSHIP_TIER: inconsistent casing/whitespace,104,"Stripped whitespace, title-cased"
+profile,AGE missing,78,Median-imputed at model time + AGE_MISSING flag
+profile,AGE outside 16-100,0,Set to missing
+profile,GENDER missing,52,Labelled 'Unknown'
+profile,HOME_STORE_PRICE_TIER missing,130,Labelled 'Unknown'
+activity,Exact duplicate rows,58,Dropped
+activity,Negative TOTAL_SPEND (sign error: |spend| = txn x basket),24,Replaced with absolute value
+activity,Zero TOTAL_SPEND despite transactions > 0,20,Recomputed as TRANSACTIONS x AVG_BASKET_VALUE
+activity,"Outlier TOTAL_SPEND (> 1.5x txn x basket, up to 14.7x)",13,Recomputed as TRANSACTIONS x AVG_BASKET_VALUE
+activity,Conflicting duplicate CUSTOMER_ID+MONTH (resolved by sign fix),2,Dropped duplicate key
+activity,Zero-transaction months reporting DISTINCT_CATEGORIES > 0,1452,Set DISTINCT_CATEGORIES to 0 (no purchase = no category)
+activity,"Zero-transaction months (valid inactive months, kept)",2330,Kept: genuine inactivity is a churn signal
+activity,PROMO_TXN_PCT outside 0-1,0,Clipped to 0-1
+activity,Activity rows with no matching profile,0,Dropped
+activity,Missing months inside a member's history,953,"Treated as unrecorded (excluded from averages), counted as MISSING_MONTHS feature"
+label,Exact duplicate rows,5,Dropped
+label,Official CHURNED disagrees with label re-derived from activity,9,Kept official label (source of truth); listed in label_mismatches.csv
+label,No purchase history before Apr-2024 (outside churn definition / cold start),232,Excluded from model test set; reported separately
+label,"Leaky columns (LAST_PURCHASE_DATE, MONTHS_OBSERVED, INSUFFICIENT_HISTORY_FLAG)",2600,Never used as features: computed over Apr-Jun 2024
+join,Profiles without a churn label,0,Excluded from modelling

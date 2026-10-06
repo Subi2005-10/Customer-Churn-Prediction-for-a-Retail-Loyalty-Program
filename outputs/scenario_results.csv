@@ -1,0 +1,4 @@
+scenario,members_targeted,actual_churners_in_target,expected_churners_before,expected_churners_after_model,model_implied_churners_avoided,relative_risk_reduction,churners_avoided_at_assumed_effectiveness,campaign_cost_usd,value_protected_usd,net_value_usd,cost_per_member_saved_usd
+A. Service outreach: active members with 1+ ticket in Jan-Mar and risk >= threshold,109,85,86.16125025760131,63.609885065099526,22.551365192501784,0.26173442382832945,11.275682596250892,872.0,4676.233498882217,3804.2334988822167,77.3345642320524
+B. Targeted coupon: top 20% risk among active members,343,149,151.19449515820673,112.01040333335104,39.1840918248557,0.25916348200279576,19.59204591242785,1715.0,8125.182721780027,6410.182721780027,87.53552373578921
+C. Blanket coupon: all active members (current practice),1715,164,159.73197122889076,118.76191613534621,40.970055093544545,0.2564925154203211,20.485027546772272,8575.0,8495.518672332273,-79.48132766772687,418.5984119582559
